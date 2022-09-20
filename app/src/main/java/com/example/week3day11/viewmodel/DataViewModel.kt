@@ -9,8 +9,8 @@ import com.example.week3day11.network.RetrofitService
 import retrofit2.Response
 
 class DataViewModel:ViewModel() {
-    var Datalist = MutableLiveData<List<DataId>>()
-    fun GetApiData() {
+    var datalist = MutableLiveData<List<DataId>>()
+    fun getApiData() {
         val retrofitService =
             RetrofitInstance.getRetrofitInstance().create(RetrofitService::class.java)
         retrofitService.getData().enqueue(object : retrofit2.Callback<List<DataId>> {
@@ -18,7 +18,7 @@ class DataViewModel:ViewModel() {
                 call: retrofit2.Call<List<DataId>>,
                 response: Response<List<DataId>>
             ) {
-                Datalist.value = response.body()
+                datalist.value = response.body()
             }
 
             override fun onFailure(call: retrofit2.Call<List<DataId>>, t: Throwable) {
