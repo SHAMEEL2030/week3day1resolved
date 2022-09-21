@@ -11,11 +11,13 @@ import com.example.week3day11.viewmodel.DataViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var dataViewModel:DataViewModel
-    private val dataid:RecyclerView=findViewById(R.id.dataid)
+    private lateinit var dataid:RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        dataid=findViewById(R.id.dataid)
         initIdApi()
+
     }
     private fun initIdApi() {
         dataViewModel = ViewModelProvider(this)[DataViewModel::class.java]
