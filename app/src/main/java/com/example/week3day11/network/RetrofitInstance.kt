@@ -6,7 +6,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.security.KeyManagementException
 import java.security.NoSuchAlgorithmException
-import java.util.concurrent.TimeUnit
 import kotlin.jvm.Throws
 
 object RetrofitInstance {
@@ -19,10 +18,6 @@ object RetrofitInstance {
             val interceptor = HttpLoggingInterceptor()
             interceptor.level = HttpLoggingInterceptor.Level.BODY
             val httpBuilder = OkHttpClient.Builder()
-            httpBuilder
-                .connectTimeout(15,TimeUnit.SECONDS)
-                .readTimeout(20,TimeUnit.SECONDS)
-                .addInterceptor(interceptor)
             mClient = httpBuilder.build()
         }
         return mClient!!

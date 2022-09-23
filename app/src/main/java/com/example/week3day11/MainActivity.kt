@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private fun initIdApi() {
         dataViewModel = ViewModelProvider(this)[DataViewModel::class.java]
         dataViewModel.getApiData()
-        dataViewModel.datalist.observe(this) {
+        dataViewModel.datalist?.observe(this) {
             initAdapter(it)
         }
     }
